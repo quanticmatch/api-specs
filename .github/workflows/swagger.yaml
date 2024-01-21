@@ -13,8 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: NPM install
+        run: npm install
+
       - name: Validate OpenAPI file
-        run: speccy lint swagger.yaml
+        run: npx speccy lint swagger.yaml
 
       - name: Deploy Swagger UI
         run: |
