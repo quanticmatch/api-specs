@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Quantic Match API
+  description: |-
+    Quantic Match API draft specifications
+  version: 1.0.11
+tags:
+  - name: user
+    description: Operations about user
+paths:
+  /user/login:
+    post:
+      summary: User Login
+      description: Authenticate a user by email and password
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: The email of the user
+                password:
+                  type: string
+                  format: password
+                  description: The password of the user
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              example:
+                message: Login successful
+                accessToken: "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiS..."
+                expiresIn: 3600
+                tokenType: "Bearer"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                message: Email and password are required
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Invalid username or password
+  /user/get:
+    get:
+      summary: Get User Public Profile
+      description: Retrieve public profile data by email
+      tags:
+        - user
+      parameters:
+        - in: query
+          name: email
+          required: true
+          schema:
+            type: string
+          description: The email of the user
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              example:
+                quanticSequence: 4242
+                firstName: John
+                profileFinished: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                message: Invalid email format
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: User not found
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: James
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: '12345'
+        phone:
+          type: string
+          example: '12345'
+      xml:
+        name: user
+  requestBodies:
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
