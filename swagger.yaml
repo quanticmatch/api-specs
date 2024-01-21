@@ -10,6 +10,7 @@ tags:
 paths:
   /user/login:
     post:
+      operationId: loginUser
       summary: User Login
       description: Authenticate a user by email and password
       tags:
@@ -55,6 +56,7 @@ paths:
                 message: Invalid username or password
   /user/get:
     get:
+      operationId: getUser
       summary: Get User Public Profile
       description: Retrieve public profile data by email
       tags:
