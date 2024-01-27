@@ -25,9 +25,13 @@ jobs:
         run: |
           git clone https://github.com/swagger-api/swagger-ui.git
           cp swagger.yaml swagger-ui/dist/
+          
+          # Set Git configurations
+          git config --global user.name "ecazorla"
+          git config --global user.email "ecazorla@gmail.com"
+
+          # Add commands to commit and push changes
           cd swagger-ui
-          git config user.name "ecazorla"
-          git config user.email "ecazorla@gmail.com"
           git add .
           git commit -m "Update Swagger UI with latest OpenAPI spec"
           git push origin master
