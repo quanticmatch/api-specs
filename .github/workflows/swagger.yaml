@@ -10,11 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.ECAZORLA_PAT }}
-
       - name: NPM install
         run: npm install
 
@@ -22,6 +17,9 @@ jobs:
         run: npx speccy lint swagger.yaml
 
       - name: Deploy Swagger UI
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ECAZORLA_PAT }}
         run: |
           git clone https://github.com/swagger-api/swagger-ui.git
           cp swagger.yaml swagger-ui/dist/
