@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         with:
           repository: quanticmatch/api-specs
           token: ${{ secrets.ECAZORLA_PAT_CLASSIC }}
