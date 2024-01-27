@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          repository: actions/checkout
+          repository: quanticmatch/api-specs
           token: ${{ secrets.ECAZORLA_PAT }}
 
       - name: NPM install
