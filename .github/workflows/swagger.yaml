@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        repository: quanticmatch/api-specs
         with:
+          repository: quanticmatch/api-specs
           token: ${{ secrets.ECAZORLA_PAT }}
 
       - name: NPM install
