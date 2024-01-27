@@ -15,7 +15,7 @@ jobs:
         with:
           repository: quanticmatch/api-specs
           persist-credentials: false
-          token: ${{ secrets.ECAZORLA_PAT_CLASSIC }}
+          # token: ${{ secrets.ECAZORLA_PAT_CLASSIC }}
 
       - name: NPM install
         run: npm install
@@ -37,3 +37,8 @@ jobs:
           git add .
           git commit -m "Update Swagger UI with latest OpenAPI spec"
           git push origin master
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ECAZORLA_PAT_CLASSIC }}
+          branch: master
