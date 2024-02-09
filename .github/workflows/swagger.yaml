@@ -2,9 +2,8 @@ name: Deploy Quantic Match API Documentation
 
 on:
   push:
-    paths:
-      - 'swagger.yaml'
-      - '.github/workflows/swagger.yaml'
+    branches:
+      - master
 
 jobs:
   build:
