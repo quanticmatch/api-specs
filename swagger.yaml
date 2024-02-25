@@ -68,32 +68,40 @@ paths:
             schema:
               type: object
               properties:
-                first_name:
+                father_last_name:
                   type: string
-                  description: The first name of the user
-                last_name:
+                  description: The father last name of the user
+                mother_last_name:
                   type: string
-                  description: The last name of the user
+                  description: The mother last name of the user
+                common_name:
+                  type: string
+                  description: The common name of the user
+                birth_date:
+                  type: string
+                  description: The birth date of the user
                 email:
                   type: string
                   description: The email of the user
+                password:
+                  type: string
+                  format: password
+                  description: The password of the user
                 phone:
                   type: string
                   description: The phone number of the user
                 country:
                   type: string
                   description: The country of the user
-                password:
-                  type: string
-                  format: password
-                  description: The password of the user
               required:
-                - first_name
-                - last_name
+                - father_last_name
+                - mother_last_name
+                - common_name
+                - birth_date 
                 - email
+                - password
                 - phone
                 - country
-                - password
       responses:
         '200':
           description: Account created
