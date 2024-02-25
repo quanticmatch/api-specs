@@ -58,16 +58,16 @@ paths:
     get:
       operationId: getUser
       summary: Get User Public Profile
-      description: Retrieve public profile data by email
+      description: Retrieve public profile data by id
       tags:
         - user
       parameters:
         - in: query
-          name: email
+          name: id
           required: true
           schema:
-            type: string
-          description: The email of the user
+            type: number
+          description: The id of the user
       responses:
         '200':
           description: Successful request
@@ -82,13 +82,19 @@ paths:
           content:
             application/json:
               example:
-                message: Invalid email format
+                message: Invalid id
         '404':
           description: Not Found
           content:
             application/json:
               example:
                 message: User not found
+        '500':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Internal server error
 components:
   schemas:
     User:
