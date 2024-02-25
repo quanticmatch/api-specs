@@ -1,5 +1,5 @@
 # QuanticMatch API documentation
 
-## URL
+## URL
 
 https://quanticmatch.github.io/api-specs/
