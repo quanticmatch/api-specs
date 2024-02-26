@@ -118,7 +118,7 @@ paths:
           content:
             application/json:
               example:
-                message: Email is required
+                message: Email already in use
   /user/recover:
     post:
       operationId: recover
