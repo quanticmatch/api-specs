@@ -225,7 +225,7 @@ paths:
           name: id
           required: true
           schema:
-            type: number
+            type: string
           description: The id of the user
       responses:
         '200':
@@ -289,3 +289,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/User'
+servers:
+  - url: https://pi9zlpohk7.execute-api.eu-west-2.amazonaws.com/dev
+    description: Sandbox server (uses test data)
